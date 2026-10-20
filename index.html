@@ -7,7 +7,7 @@
 <style>
 /* Layout: ticket-style cover, sticky day stubs, each day drawn as a metro route — time | rail | stop; moves color the rail by line */
 :root{
-  --paper:#f4f6f7; --plate:#ffffff; --ink:#111418; --sub:#5c6670; --hair:#d9dee3;
+  --paper:#f4f6f7; --plate:#ffffff; --ink:#111418; --sub:#5c6670; --faint:#8a939c; --hair:#d9dee3;
   --navy:#15325c; --go:#3d5f95; --go-ink:#ffffff; --rust:#c24d26; --rust-bg:#fbeee8; --alert:#b23a1a; --alert-bg:#fdece5;
   --l-yotsu:#0078ba; --l-tani:#7a4b9e; --l-chuo:#019a66; --l-mido:#e5171f; --l-kin:#d9641e; --l-walk:#9aa3ad; --l-car:#3b4654;
   --f-head:"Gothic A1","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
@@ -15,10 +15,10 @@
   --f-num:"Barlow Condensed","Arial Narrow",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#0e1115; --plate:#171b21; --ink:#eef1f4; --sub:#9aa4ae; --hair:#2a3038;
+  --paper:#0e1115; --plate:#171b21; --ink:#eef1f4; --sub:#9aa4ae; --faint:#6c7681; --hair:#2a3038;
   --navy:#8fb4e8; --go:#7393c4; --go-ink:#0e1115; --rust:#f08a62; --rust-bg:#2a1b15; --alert:#f39a7c; --alert-bg:#2e1912; --l-walk:#6f7984; --l-car:#8a96a5; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#0e1115; --plate:#171b21; --ink:#eef1f4; --sub:#9aa4ae; --hair:#2a3038;
+  --paper:#0e1115; --plate:#171b21; --ink:#eef1f4; --sub:#9aa4ae; --faint:#6c7681; --hair:#2a3038;
   --navy:#8fb4e8; --go:#7393c4; --go-ink:#0e1115; --rust:#f08a62; --rust-bg:#2a1b15; --alert:#f39a7c; --alert-bg:#2e1912; --l-walk:#6f7984; --l-car:#8a96a5; color-scheme:dark}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 56px}
@@ -79,7 +79,7 @@ ol.route li:last-child .rail::before{bottom:calc(100% - 22px)}
 .tt h3{display:inline;font-family:var(--f-head);font-weight:800;font-size:18px;line-height:1.4}
 .tag{display:inline-block;font-size:11px;font-weight:800;color:var(--plate);background:var(--rust);border-radius:4px;padding:1px 6px;margin-right:6px;vertical-align:3px}
 .st.shop .tag{background:var(--navy)}
-.st p{margin:4px 0 0;font-size:14.5px;color:var(--sub)}
+.st p{margin:3px 0 0;font-size:13px;line-height:1.5;color:var(--faint)}
 a.map{flex:0 0 auto;display:inline-flex;gap:3px;align-items:center;font-size:13px;font-weight:800;color:var(--navy);border:1.5px solid var(--navy);border-radius:999px;padding:4px 10px;text-decoration:none;background:var(--plate)}
 a.map:hover{background:var(--navy);color:var(--plate)}
 ol.route li.mvg{grid-template-columns:56px minmax(0,1fr)}
@@ -91,7 +91,7 @@ a.go:hover{filter:brightness(1.08)}
 .leg{display:grid;grid-template-columns:26px minmax(0,1fr);column-gap:8px;margin-left:0}
 .leg .rail::before{width:6px;margin-left:-3px;background:var(--c)}
 .leg.walk .rail::before{background:repeating-linear-gradient(to bottom,var(--c) 0 6px,transparent 6px 11px)}
-.leg .ct{display:flex;align-items:center;gap:4px 10px;padding:9px 0;font-size:15px;color:var(--sub);min-width:0}
+.leg .ct{display:flex;align-items:center;gap:4px 10px;padding:9px 0;font-size:15.5px;font-weight:500;color:var(--ink);min-width:0}
 .badge{flex:0 0 auto;font-size:12.5px;font-weight:800;color:#fff;background:var(--c);border-radius:5px;padding:3px 8px;letter-spacing:.02em}
 .leg.walk .badge{background:transparent;color:var(--sub);border:1.5px solid var(--l-walk);padding:1px 6px}
 .mt{min-width:0;flex:1 1 auto}
@@ -127,7 +127,8 @@ h2.sec{font-family:var(--f-head);font-weight:900;font-size:22px;margin:0 0 6px}
   ol.route li{grid-template-columns:48px 22px minmax(0,1fr);column-gap:6px}
   ol.route li.mvg{grid-template-columns:48px minmax(0,1fr)}
   .leg{grid-template-columns:22px minmax(0,1fr);column-gap:6px;margin-left:0}
-  .leg .ct{font-size:14px;flex-wrap:wrap}
+  .leg .ct{font-size:15px;flex-wrap:wrap}
+  .st p{font-size:12.5px}
   .mt{flex:1 1 9em}
   .tm{font-size:18px}
   .track h4,h4.join{padding-left:76px}
